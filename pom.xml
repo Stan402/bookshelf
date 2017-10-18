@@ -8,6 +8,8 @@
     <artifactId>bookshelf</artifactId>
     <version>1.0</version>
     <build>
+        <finalName>theBookshelf</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -17,7 +19,22 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
+
     </build>
 
     <packaging>war</packaging>
@@ -99,10 +116,8 @@
             <scope>provided</scope>
         </dependency>
 
-
-
-
-
     </dependencies>
+
+
 
 </project>
